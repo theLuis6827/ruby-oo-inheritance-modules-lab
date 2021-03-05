@@ -64,7 +64,7 @@ break something to make it better. Embrace broken code.
 
 ### Step 1: Class Methods
 
-First, run the test suite. Wow, we're passing all of our tests! Okay, now let
+<!-- First, run the test suite. Wow, we're passing all of our tests! Okay, now let
 go of those passing tests because we are about to break our code.
 
 The first area of refactoring we'll be attacking are the class methods. Notice
@@ -75,24 +75,24 @@ classes.
 
 Ready to break your code? Comment out the `reset_all` and `count` methods in
 the `Song` and `Artist` class. Run your test suite. Phew! Okay, we did it. That
-wasn't so bad, was it?
+wasn't so bad, was it? -->
 
 #### The `Memorable` Module
 
-Let's define our module. Create a `concerns` folder inside `lib`. This is where
+<!-- Let's define our module. Create a `concerns` folder inside `lib`. This is where
 we'll store our modules. It is a common practice to create a folder called
 `concerns` that holds modules that will be used across classes in an object
 oriented Ruby project.
 
 Inside the `concerns` folder, create a file called `memorable.rb`. Open up that
-file and define a module:
+file and define a module: -->
 
 ```ruby
 module Memorable
 end
 ```
 
-Inside here, define your `reset_all` and `count` methods.
+<!-- Inside here, define your `reset_all` and `count` methods.
 
 Important! Remember to add `require_relative '../lib/concerns/memorable'` to
 your environment file before running any tests. We've already provided that
@@ -109,7 +109,7 @@ the method as a class method vs. an instance method (which would use the
 Now you're ready to run your test suite again. Get all those tests back to
 passing before you move on. Once your tests are passing, make sure you delete
 the commented-out `reset_all` and `count` class methods from your `Song` and
-`Artist` class. You don't need them anymore.
+`Artist` class. You don't need them anymore. -->
 
 #### Advanced: The `find_by_name` Method
 
@@ -138,20 +138,20 @@ Okay, back to your regularly scheduled programming:
 
 #### The `Findable` Module
 
-In `lib/concerns`, create a file, `findable.rb`. In this file, define a module:
+<!-- In `lib/concerns`, create a file, `findable.rb`. In this file, define a module:
 `Findable`. This module should define the method, `find_by_name`. This method
-will be used as a class method. Something like this:
+will be used as a class method. Something like this: -->
 
 ```ruby
 Artist.find_by_name("Adele")
 #=> #<Artistx038230sdcmdn3872>
 ```
 
-Extract the code from the `find_by_name` methods that you'll see in the
+<!-- Extract the code from the `find_by_name` methods that you'll see in the
 `Artist` and `Song` classes and place it inside the `Findable` module's
-`find_by_name` method.
+`find_by_name` method. -->
 
-Remember that we need to keep the content of this method abstract. So, inside
+<!-- Remember that we need to keep the content of this method abstract. So, inside
 the `Artist` class, a `find_by_name` method might look like this:
 
 ```ruby
@@ -181,11 +181,11 @@ class that _didn't_ define such a variable.
 
 Is there a way to reference the collection of _all_ of the instances of a
 class, without specifically referencing class variables that are only defined
-in certain classes?
+in certain classes? -->
 
 ### Step 2: Instance Methods
 
-Let's go back to our `Song` and `Artist` class and take a look at another
+<!-- Let's go back to our `Song` and `Artist` class and take a look at another
 example of repetition, this time with instance methods. The `to_param` instance
 method is repeated in the `Song` and `Artist` class. Another great candidate
 for refactoring!
@@ -193,26 +193,26 @@ for refactoring!
 Go ahead and comment out the `to_param` method in both the `Song` and `Artist`
 class. Run your test suite again and see those broken tests!
 
-Okay, now we're ready to define our module.
+Okay, now we're ready to define our module. -->
 
 #### The `Paramable` Module
 
-Create a new file in your `concerns` directory called `paramable.rb`. Define
-your module here:
+<!-- Create a new file in your `concerns` directory called `paramable.rb`. Define
+your module here: -->
 
 ```ruby
 module Paramable
 end
 ```
 
-Build the `to_param` method inside your module and use the `include` keyword to
+<!-- Build the `to_param` method inside your module and use the `include` keyword to
 include the `Paramable` module in both the `Song` and `Artist` class. Once you
 get your tests passing again, go ahead and delete the commented-out `to_param`
 method from the `Song` and `Artist` classes.
 
 Important! Remember to add `require_relative '../lib/concerns/paramable'` to
 your environment file before running any tests. We've already provided that
-line for you in fact! All you have to do is un-comment it out. :)
+line for you in fact! All you have to do is un-comment it out. :) -->
 
 #### Advanced: The `to_param` Method
 
